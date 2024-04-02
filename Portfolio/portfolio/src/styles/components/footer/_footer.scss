@@ -1,0 +1,9 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+.footer_links {
+  @include listReset;
+  display: flex;
+  gap: 20px;
+}
