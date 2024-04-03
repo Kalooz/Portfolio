@@ -1,12 +1,8 @@
 import * as React from "react";
-import {
-  useStaticQuery,
-  type HeadFC,
-  type PageProps,
-  graphql,
-  Link,
-} from "gatsby";
-import { ApiHeroHero } from "../contentTypes";
+import { useStaticQuery, type HeadFC, type PageProps, graphql } from "gatsby";
+import Layout from "../components/layout/Layout";
+import ProjectShowcase from "../components/projects/ProjectShowcase";
+import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 
 const IndexPage: React.FC<PageProps> = () => {
   const data = useStaticQuery(graphql`
@@ -19,63 +15,36 @@ const IndexPage: React.FC<PageProps> = () => {
     }
   `);
 
-  const articles = data.allStrapiHero.nodes;
-
   return (
-    <>
-      <header className="bg-gray-800 text-white py-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <Link className="text-2xl font-bold" to="/">
-            My Portfolio
-          </Link>
-
-          <nav>
-            <ul className="flex space-x-4">
-              <li>
-                <a href="#about" className="hover:text-gray-300">
-                  About
-                </a>
-
-                <Link className="hover:text-gray-300" to="Projects">
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-300" to="Projects">
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-gray-300">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-
-      <main>
-        {articles.map(
-          (article: ApiHeroHero["attributes"]["Title"], index: React.Key) => (
-            <div key={index} className="bg-gray-100 p-4">
-              <h2 className="text-2xl font-bold">{article.Title}</h2>
-            </div>
-          )
-        )}
-      </main>
+    <Layout>
+      {/* <div>
+        <h2>Hero Banner</h2>
+      </div>
+      <div>
+        <h2>About Me</h2>
+      </div>
+      <div>
+        <h2>Education</h2>
+      </div>
+      <div>
+        <h2>Experience</h2>
+      </div>
+      <div>
+        <h2>Skills</h2>
+      </div>
+      <div>
+        <h2>
+          Projects<ProjectShowcase></ProjectShowcase>
+        </h2>
+      </div>
+      <div>
+        <h2>Contact</h2>
+      </div> */}
 
       <div>
-        <div>
-          <a
-            href="http://localhost:1337/uploads/Project_Play2_Learn_Complete_Website_Project_Webucator_a89d20b2ac.pdf"
-            download
-          >
-            <button>Download PDF</button>
-          </a>
-        </div>
+        <AccessAlarmIcon />
       </div>
-    </>
+    </Layout>
   );
 };
 

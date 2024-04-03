@@ -1,4 +1,40 @@
+$footer-height: 24px;
+
 body {
   margin: 0;
   font-family: "Lato";
+  background-color: theme("colors.black");
+  color: theme("colors.white");
+}
+
+.main {
+  overflow-y: auto;
+  max-height: calc(100% - $footer-height);
+  height: calc(100% - $footer-height);
+  margin-right: -6px;
+}
+
+footer {
+  min-height: $footer-height;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: theme("colors.dark-gray");
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

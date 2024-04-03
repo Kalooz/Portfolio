@@ -1,0 +1,31 @@
+/* font-family: "Bebas Neue";
+    Weights: [400]
+    Styles: [normal]
+
+
+font-family: "Roboto";
+    Weights: [100,300,400,500,700,900]
+    Styles: [italic,normal] */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Bebas Neue";
+  font-weight: 400;
+  font-style: normal;
+}
+
+a {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+}
+
+p {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+}

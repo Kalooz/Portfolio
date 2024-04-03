@@ -21,7 +21,7 @@ const config: GatsbyConfig = {
       options: {
         apiURL: process.env.STRAPI_API_URL,
         accessToken: process.env.STRAPI_TOKEN,
-        collectionTypes: ["hero", "project"],
+        collectionTypes: ["hero", "project", "social-link"],
         singleTypes: [],
         maxParallelRequests: 5, // (Optional) Default: Number.POSITIVE_INFINITY
         remoteFileHeaders: {
