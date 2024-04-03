@@ -1,8 +1,8 @@
 {
-  "name": "portfolio",
+  "name": "Gatsby",
   "version": "1.0.0",
   "private": true,
-  "description": "portfolio",
+  "description": "Gatsby",
   "author": "Michal Kaluzny",
   "keywords": [
     "gatsby"

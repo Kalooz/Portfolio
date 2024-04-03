@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "develop": "concurrently --kill-others \"npm:develop:strapi\" \"npm:develop:portfolio\"",
+    "develop:strapi": "cd CMS && npm run develop",
+    "develop:portfolio": "wait-on http://localhost:1337/admin && cd Portfolio && npm run develop"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "wait-on": "^7.2.0"
+  }
+}
