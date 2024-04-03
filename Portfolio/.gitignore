@@ -1,9 +1,0 @@
-# Node
-node_modules/
-
-# Gatsby Files
-.cache/
-public
-
-# Keys
-.env.*

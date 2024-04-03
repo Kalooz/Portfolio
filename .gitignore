@@ -80,8 +80,8 @@ $RECYCLE.BIN/
 ssl
 .idea
 nbproject
-public/uploads/*
-!public/uploads/.gitkeep
+CMS/public/uploads/*
+!CMS/public/uploads/.gitkeep
 
 ############################
 # Node.js
@@ -112,3 +112,10 @@ exports
 dist
 build
 .strapi-updater.json
+
+############################
+# Gatsby
+############################
+
+.cache/
+Portfolio/public
