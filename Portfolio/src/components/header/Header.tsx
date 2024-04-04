@@ -1,5 +1,5 @@
 import { Link, graphql, useStaticQuery } from "gatsby";
-import React from "react";
+import React, { useEffect } from "react";
 import { SocialLink } from "./types";
 import Partition from "../layout/Partition";
 
@@ -35,10 +35,7 @@ const Header: React.FC = () => {
           <h2 className="text-4xl  mt-1">Michal Kaluzny</h2>
         </Link>
         {socialLinks.map(
-          (
-            socialLink: SocialLink["attributes"],
-            index: React.Key | null | undefined
-          ) => (
+          (socialLink: SocialLink, index: React.Key | null | undefined) => (
             <li key={index}>
               <a href={socialLink.Link} className="hover:text-gray-300">
                 <img
@@ -57,40 +54,37 @@ const Header: React.FC = () => {
         <nav>
           <ul className="flex flex-col">
             <li>
-              <a href="">Hero Banner</a>
-            </li>
-            <li>
-              <a href="" className="hover:text-blue-500">
+              <a href="#about-me" className="hover:text-blue-500">
                 <PersonIcon />
                 About Me
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="#education">
                 <SchoolIcon />
                 <span>Education</span>
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="#experience">
                 <WorkIcon />
                 Experience
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="#skills">
                 <CodeIcon />
                 Skills
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="#projects">
                 <WebIcon />
                 Projects
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="#contact">
                 <EmailIcon />
                 Contact
               </a>

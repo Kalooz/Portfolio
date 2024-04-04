@@ -1,7 +1,7 @@
 import React from "react";
 import { useSwiper } from "swiper/react";
 
-export const SwiperNavButtons = () => {
+export const SwiperNavButtons: React.FC = () => {
   const swiper = useSwiper();
 
   return (

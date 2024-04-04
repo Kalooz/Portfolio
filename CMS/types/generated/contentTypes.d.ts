@@ -840,6 +840,79 @@ export interface ApiProjectProject extends Schema.CollectionType {
   };
 }
 
+export interface ApiSkillSkill extends Schema.CollectionType {
+  collectionName: 'skills';
+  info: {
+    singularName: 'skill';
+    pluralName: 'skills';
+    displayName: 'Skill';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Skill: Attribute.String;
+    Icon: Attribute.Media;
+    skill_type: Attribute.Relation<
+      'api::skill.skill',
+      'manyToOne',
+      'api::skill-type.skill-type'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::skill.skill',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::skill.skill',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSkillTypeSkillType extends Schema.CollectionType {
+  collectionName: 'skill_types';
+  info: {
+    singularName: 'skill-type';
+    pluralName: 'skill-types';
+    displayName: 'Skill Type';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    skills: Attribute.Relation<
+      'api::skill-type.skill-type',
+      'oneToMany',
+      'api::skill.skill'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::skill-type.skill-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::skill-type.skill-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSocialLinkSocialLink extends Schema.CollectionType {
   collectionName: 'social_links';
   info: {
@@ -892,6 +965,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::hero.hero': ApiHeroHero;
       'api::project.project': ApiProjectProject;
+      'api::skill.skill': ApiSkillSkill;
+      'api::skill-type.skill-type': ApiSkillTypeSkillType;
       'api::social-link.social-link': ApiSocialLinkSocialLink;
     }
   }

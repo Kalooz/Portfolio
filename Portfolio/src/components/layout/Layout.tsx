@@ -1,6 +1,5 @@
 import React, { FC, ReactNode } from "react";
 import classNames from "classnames";
-import Contact from "../contact/Contact";
 import Header from "../header/Header";
 import Partition from "./Partition";
 import Footer from "../footer/Footer";
@@ -33,7 +32,9 @@ const Layout: FC<LayoutProps> = ({
   return (
     <div className={layoutClass} {...props}>
       <Header></Header>
-      <Contact></Contact>
+      <Partition className="overflow-hidden" rows={5} cols={2}>
+        <div>test</div>
+      </Partition>
       <Partition className="overflow-hidden" rows={12} cols={10}>
         <main className="main">{children}</main>
         <Footer></Footer>

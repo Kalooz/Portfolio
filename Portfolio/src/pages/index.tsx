@@ -2,7 +2,12 @@ import * as React from "react";
 import { useStaticQuery, type HeadFC, type PageProps, graphql } from "gatsby";
 import Layout from "../components/layout/Layout";
 import ProjectShowcase from "../components/projects/ProjectShowcase";
-import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
+import Skills from "../components/skills/Skills";
+import AboutMe from "../components/about/AboutMe";
+import Experience from "../components/experience/Experience";
+import Section from "../components/layout/Section";
+import Education from "../components/education/Education";
+import Contact from "../components/contact/ContactForm";
 
 const IndexPage: React.FC<PageProps> = () => {
   const data = useStaticQuery(graphql`
@@ -17,33 +22,30 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <Layout>
-      {/* <div>
-        <h2>Hero Banner</h2>
-      </div>
-      <div>
-        <h2>About Me</h2>
-      </div>
-      <div>
-        <h2>Education</h2>
-      </div>
-      <div>
-        <h2>Experience</h2>
-      </div>
-      <div>
-        <h2>Skills</h2>
-      </div>
-      <div>
-        <h2>
-          Projects<ProjectShowcase></ProjectShowcase>
-        </h2>
-      </div>
-      <div>
-        <h2>Contact</h2>
-      </div> */}
+      <Section title="Hero Banner">
+        <div>
+          <h2>{data.allStrapiHero.nodes[0].Title}</h2>
+        </div>
+      </Section>
+      <Section title="Education">
+        <Education />
+      </Section>
+      <Section title="Contact">
+        <Contact />
+      </Section>
 
-      <div>
-        <AccessAlarmIcon />
-      </div>
+      <Section title="Experience">
+        <Experience />
+      </Section>
+      <Section title="About Me">
+        <AboutMe />
+      </Section>
+      <Section title="Projects">
+        <ProjectShowcase />
+      </Section>
+      <Section title="Skills">
+        <Skills />
+      </Section>
     </Layout>
   );
 };

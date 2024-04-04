@@ -1554,6 +1554,8 @@ type Query = {
   readonly allStrapiHero: STRAPI_HEROConnection;
   readonly allStrapiMedia: STRAPI__MEDIAConnection;
   readonly allStrapiProject: STRAPI_PROJECTConnection;
+  readonly allStrapiSkill: STRAPI_SKILLConnection;
+  readonly allStrapiSkillType: STRAPI_SKILL_TYPEConnection;
   readonly allStrapiSocialLink: STRAPI_SOCIAL_LINKConnection;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
@@ -1567,6 +1569,8 @@ type Query = {
   readonly strapiHero: Maybe<STRAPI_HERO>;
   readonly strapiMedia: Maybe<STRAPI__MEDIA>;
   readonly strapiProject: Maybe<STRAPI_PROJECT>;
+  readonly strapiSkill: Maybe<STRAPI_SKILL>;
+  readonly strapiSkillType: Maybe<STRAPI_SKILL_TYPE>;
   readonly strapiSocialLink: Maybe<STRAPI_SOCIAL_LINK>;
 };
 
@@ -1664,6 +1668,22 @@ type Query_allStrapiProjectArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<STRAPI_PROJECTSortInput>>>;
+};
+
+
+type Query_allStrapiSkillArgs = {
+  filter: InputMaybe<STRAPI_SKILLFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<STRAPI_SKILLSortInput>>>;
+};
+
+
+type Query_allStrapiSkillTypeArgs = {
+  filter: InputMaybe<STRAPI_SKILL_TYPEFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<STRAPI_SKILL_TYPESortInput>>>;
 };
 
 
@@ -1903,6 +1923,35 @@ type Query_strapiProjectArgs = {
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
   publishedAt: InputMaybe<DateQueryOperatorInput>;
+  strapi_id: InputMaybe<IntQueryOperatorInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+
+type Query_strapiSkillArgs = {
+  Icon: InputMaybe<STRAPI__MEDIAFilterInput>;
+  Skill: InputMaybe<StringQueryOperatorInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  publishedAt: InputMaybe<DateQueryOperatorInput>;
+  skill_type: InputMaybe<STRAPI_SKILL_TYPEFilterInput>;
+  strapi_id: InputMaybe<IntQueryOperatorInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+
+type Query_strapiSkillTypeArgs = {
+  Name: InputMaybe<StringQueryOperatorInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  publishedAt: InputMaybe<DateQueryOperatorInput>;
+  skills: InputMaybe<STRAPI_SKILLFilterListInput>;
   strapi_id: InputMaybe<IntQueryOperatorInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
@@ -2243,6 +2292,338 @@ type STRAPI_PROJECTSortInput = {
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
   readonly publishedAt: InputMaybe<SortOrderEnum>;
+  readonly strapi_id: InputMaybe<SortOrderEnum>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type STRAPI_SKILL = Node & {
+  readonly Icon: Maybe<STRAPI__MEDIA>;
+  readonly Skill: Maybe<Scalars['String']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly publishedAt: Maybe<Scalars['Date']>;
+  readonly skill_type: Maybe<STRAPI_SKILL_TYPE>;
+  readonly strapi_id: Maybe<Scalars['Int']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type STRAPI_SKILL_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type STRAPI_SKILL_publishedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type STRAPI_SKILL_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type STRAPI_SKILLConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_SKILLEdge>;
+  readonly group: ReadonlyArray<STRAPI_SKILLGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_SKILL>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_SKILLConnection_distinctArgs = {
+  field: STRAPI_SKILLFieldSelector;
+};
+
+
+type STRAPI_SKILLConnection_groupArgs = {
+  field: STRAPI_SKILLFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_SKILLConnection_maxArgs = {
+  field: STRAPI_SKILLFieldSelector;
+};
+
+
+type STRAPI_SKILLConnection_minArgs = {
+  field: STRAPI_SKILLFieldSelector;
+};
+
+
+type STRAPI_SKILLConnection_sumArgs = {
+  field: STRAPI_SKILLFieldSelector;
+};
+
+type STRAPI_SKILLEdge = {
+  readonly next: Maybe<STRAPI_SKILL>;
+  readonly node: STRAPI_SKILL;
+  readonly previous: Maybe<STRAPI_SKILL>;
+};
+
+type STRAPI_SKILLFieldSelector = {
+  readonly Icon: InputMaybe<STRAPI__MEDIAFieldSelector>;
+  readonly Skill: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly publishedAt: InputMaybe<FieldSelectorEnum>;
+  readonly skill_type: InputMaybe<STRAPI_SKILL_TYPEFieldSelector>;
+  readonly strapi_id: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type STRAPI_SKILLFilterInput = {
+  readonly Icon: InputMaybe<STRAPI__MEDIAFilterInput>;
+  readonly Skill: InputMaybe<StringQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly publishedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly skill_type: InputMaybe<STRAPI_SKILL_TYPEFilterInput>;
+  readonly strapi_id: InputMaybe<IntQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type STRAPI_SKILLFilterListInput = {
+  readonly elemMatch: InputMaybe<STRAPI_SKILLFilterInput>;
+};
+
+type STRAPI_SKILLGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_SKILLEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<STRAPI_SKILLGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_SKILL>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_SKILLGroupConnection_distinctArgs = {
+  field: STRAPI_SKILLFieldSelector;
+};
+
+
+type STRAPI_SKILLGroupConnection_groupArgs = {
+  field: STRAPI_SKILLFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_SKILLGroupConnection_maxArgs = {
+  field: STRAPI_SKILLFieldSelector;
+};
+
+
+type STRAPI_SKILLGroupConnection_minArgs = {
+  field: STRAPI_SKILLFieldSelector;
+};
+
+
+type STRAPI_SKILLGroupConnection_sumArgs = {
+  field: STRAPI_SKILLFieldSelector;
+};
+
+type STRAPI_SKILLSortInput = {
+  readonly Icon: InputMaybe<STRAPI__MEDIASortInput>;
+  readonly Skill: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly publishedAt: InputMaybe<SortOrderEnum>;
+  readonly skill_type: InputMaybe<STRAPI_SKILL_TYPESortInput>;
+  readonly strapi_id: InputMaybe<SortOrderEnum>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type STRAPI_SKILL_TYPE = Node & {
+  readonly Name: Maybe<Scalars['String']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly publishedAt: Maybe<Scalars['Date']>;
+  readonly skills: Maybe<ReadonlyArray<Maybe<STRAPI_SKILL>>>;
+  readonly strapi_id: Maybe<Scalars['Int']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type STRAPI_SKILL_TYPE_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type STRAPI_SKILL_TYPE_publishedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type STRAPI_SKILL_TYPE_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type STRAPI_SKILL_TYPEConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_SKILL_TYPEEdge>;
+  readonly group: ReadonlyArray<STRAPI_SKILL_TYPEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_SKILL_TYPE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_SKILL_TYPEConnection_distinctArgs = {
+  field: STRAPI_SKILL_TYPEFieldSelector;
+};
+
+
+type STRAPI_SKILL_TYPEConnection_groupArgs = {
+  field: STRAPI_SKILL_TYPEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_SKILL_TYPEConnection_maxArgs = {
+  field: STRAPI_SKILL_TYPEFieldSelector;
+};
+
+
+type STRAPI_SKILL_TYPEConnection_minArgs = {
+  field: STRAPI_SKILL_TYPEFieldSelector;
+};
+
+
+type STRAPI_SKILL_TYPEConnection_sumArgs = {
+  field: STRAPI_SKILL_TYPEFieldSelector;
+};
+
+type STRAPI_SKILL_TYPEEdge = {
+  readonly next: Maybe<STRAPI_SKILL_TYPE>;
+  readonly node: STRAPI_SKILL_TYPE;
+  readonly previous: Maybe<STRAPI_SKILL_TYPE>;
+};
+
+type STRAPI_SKILL_TYPEFieldSelector = {
+  readonly Name: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly publishedAt: InputMaybe<FieldSelectorEnum>;
+  readonly skills: InputMaybe<STRAPI_SKILLFieldSelector>;
+  readonly strapi_id: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type STRAPI_SKILL_TYPEFilterInput = {
+  readonly Name: InputMaybe<StringQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly publishedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly skills: InputMaybe<STRAPI_SKILLFilterListInput>;
+  readonly strapi_id: InputMaybe<IntQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type STRAPI_SKILL_TYPEGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_SKILL_TYPEEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<STRAPI_SKILL_TYPEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_SKILL_TYPE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_SKILL_TYPEGroupConnection_distinctArgs = {
+  field: STRAPI_SKILL_TYPEFieldSelector;
+};
+
+
+type STRAPI_SKILL_TYPEGroupConnection_groupArgs = {
+  field: STRAPI_SKILL_TYPEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_SKILL_TYPEGroupConnection_maxArgs = {
+  field: STRAPI_SKILL_TYPEFieldSelector;
+};
+
+
+type STRAPI_SKILL_TYPEGroupConnection_minArgs = {
+  field: STRAPI_SKILL_TYPEFieldSelector;
+};
+
+
+type STRAPI_SKILL_TYPEGroupConnection_sumArgs = {
+  field: STRAPI_SKILL_TYPEFieldSelector;
+};
+
+type STRAPI_SKILL_TYPESortInput = {
+  readonly Name: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly publishedAt: InputMaybe<SortOrderEnum>;
+  readonly skills: InputMaybe<STRAPI_SKILLSortInput>;
   readonly strapi_id: InputMaybe<SortOrderEnum>;
   readonly updatedAt: InputMaybe<SortOrderEnum>;
 };

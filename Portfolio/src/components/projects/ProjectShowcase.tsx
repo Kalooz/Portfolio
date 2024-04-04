@@ -44,10 +44,7 @@ const ProjectShowcase: React.FC = ({}) => {
     <div>
       <Swiper modules={[Navigation, A11y]} spaceBetween={50} slidesPerView={3}>
         {projects.map(
-          (
-            project: ProjectDetails["attributes"],
-            index: React.Key | null | undefined
-          ) => {
+          (project: ProjectDetails, index: React.Key | null | undefined) => {
             return (
               <SwiperSlide key={index}>
                 <div className="p-2 bg-black">
